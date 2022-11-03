@@ -1,0 +1,3 @@
+﻿  GraphTest.cpp
+C:\Users\Legion\source\repos\GraphTest\GraphTest\GraphTest.cpp(16,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GraphTest.vcxproj -> C:\Users\Legion\source\repos\GraphTest\x64\Debug\GraphTest.exe
