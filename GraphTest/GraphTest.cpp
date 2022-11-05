@@ -66,16 +66,16 @@ void PrintShortestPath(vector<int>& dist, int& start)
 int main()
 {
     vector<Edge> edges;
-    // =
-    // {
-    //     // (x, y, w) —> edge from `x` to `y` having weight `w`
-    //     {0, 1, 6}, {1, 2, 7}, {2, 0, 5}, {2, 1, 4}, {3, 2, 10}, {5, 4, 1}, {4, 5, 3}
-    // };
+    //=
+     //{
+         // (x, y, w) —> edge from `x` to `y` having weight `w`
+         //{0, 1, 6}, {1, 2, 7}, {2, 0, 5}, {2, 1, 4}, {3, 2, 10}, {5, 4, 1}, {4, 5, 3}
+     //};
 
 
     // total number of nodes in the graph (labelled from 0 to 5)
-    int n = 6;
-    int numOfEdges = 9;
+    int n = 4;
+    int numOfEdges = 6;
 
     for (int i = 0; i < numOfEdges; i++)
     {
@@ -92,10 +92,13 @@ int main()
     Graph graph(edges, n);
 
     // print adjacency list representation of a graph
-    graph.printGraph(n);
+    graph.printGraph();
+    graph.erase(1);
+    cout << "\nerase node 1\n";
+    graph.printGraph();
     int node = 0;
 
-    vector<int> dist = BellmanFordSP(graph.adjList, node);
+   // vector<int> dist = BellmanFordSP(graph.adjList, node);
 
-    PrintShortestPath(dist, node);
+   // PrintShortestPath(dist, node);
 }
