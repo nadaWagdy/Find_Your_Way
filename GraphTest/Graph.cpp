@@ -16,6 +16,11 @@ Graph::Graph(vector<Edge> const& edges, int n)  : nodes_number(n) ,edges_number(
     }
 }
 
+int Graph::nodes_count()
+{
+    return nodes_number;
+}
+
 void Graph::printGraph()
 {
 
@@ -30,7 +35,6 @@ void Graph::printGraph()
     }
     cout << "nodes count is : " << nodes_number << " edges count is : " << edges_number;
 }
-
 bool Graph::erase(int node)
 {
     bool found = false;
@@ -38,23 +42,75 @@ bool Graph::erase(int node)
     if (adjList[node].size() != 0) {
         found = true;     
         edges_number -= adjList[node].size();
-        adjList[node].clear(); //alternative impl not completed yet
-        //adjList.erase(adjList.begin() + node);
+        //adjList[node].clear(); //alternative impl not completed yet
+        adjList.erase(adjList.begin() + node);
     }
     for (auto& srcs : adjList) {
-        for (vector<Pair>::iterator edge = srcs.begin(); edge != srcs.end();edge++) {
+      //  srcs.remove_if([](Pair x) {return x.first == 1; });
+        list<Pair>::iterator edge = srcs.begin();
+        while ( edge != srcs.end()) {
             if (edge->first == node) {
                 found = true;
-                srcs.erase(edge);
+                auto temp = edge;
+                edge++;
+                srcs.erase(temp);
                 edges_number--;
-                break;
-            }   
+            }
+            else if (edge->first > node) {
+                edge->first--;
+                edge++;
+            }
         }
     }
-    //if (found)nodes_number--;
+    if (found)nodes_number--;
     return found;
 }
+int Graph::BellmanFordSP(int start,int end)
+{
+    vector<int> dist;
 
+    // Initialize all source->vertex as infinite.
+    int n = adjList.size();
+    for (int i = 0; i < n; i++)
+    {
+        dist.push_back(1000000007); // Define "infinity" as necessary by constraints.
+    }
+
+    dist[start] = 0;
+
+    // Then calculate the shortest distance using...
+    // For numNodes-1...
+    for (int i = 0; i < n - 1; i++)
+    {
+        // For each node (u)...
+        for (int u = 0; u < n; u++)
+        {
+            // For each of it's neighbors (v)...
+            for (auto j = adjList[u].begin(); j != adjList[u].end(); j++)
+            {
+                int v = j->first;
+                int weight = j->second;
+
+                // If the distance from source to v is bigger than dist[u] + weight of (u,v)...
+                if (dist[v] > dist[u] + weight)
+                {
+                    // Update dist[v] to dist[u] + weight(u,V)
+                    dist[v] = dist[u] + weight;
+                }
+            }
+        }
+    }
+    // If there's a negative weight cycle in the graph, then report it, by...
+    // For each node (u)...
+        // For each of u's neighbors (v)...
+            // Check if it's possible to get even better (now, that we should be at shortest)
+            // If the distance from source to v is bigger than dist[u] + weight of (u,v)...
+                // Report problem.
+
+    return dist[end];
+
+}
+/*
 bool Graph::erase(int src, int dest)
 {
     bool found = false;
@@ -69,3 +125,4 @@ bool Graph::erase(int src, int dest)
     }
     return found;
 }
+*/
