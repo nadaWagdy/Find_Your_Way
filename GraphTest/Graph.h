@@ -14,6 +14,8 @@ typedef pair<int, int> Pair;
 class Graph
 {
 public:
+    vector<list<Pair> > adjList;
+
     // Constructor
     Graph(vector<Edge> const& edges, int n);
     int nodes_count();
@@ -28,9 +30,9 @@ public:
 
     int BellmanFordSP(int start, int end);
 
+    void generateRandomWeights();
 private:
     // a vector of vectors of Pairs to represent an adjacency list
-    vector<list<Pair> > adjList;
     int nodes_number;
     int edges_number;
 };

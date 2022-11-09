@@ -126,3 +126,21 @@ bool Graph::erase(int src, int dest)
     return found;
 }
 */
+
+void Graph::generateRandomWeights()
+{
+    srand(time(0));
+    int offset = -10;
+    int range = 40;
+    /*for (int i = 0; i < edges.size(); i++)
+    {
+        edges[i].weight = offset + (rand() % range);
+    }*/
+    for (int i = 0; i < adjList.size(); i++) 
+    {
+        for (auto j = adjList[i].begin(); j != adjList[i].end(); j++)
+        {
+            j->second = offset + (rand() % range);
+        }
+    }
+}
