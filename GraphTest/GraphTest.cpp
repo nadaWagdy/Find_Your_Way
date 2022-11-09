@@ -7,7 +7,7 @@
 using namespace std;
 
 
-vector<int> BellmanFordSP(vector< vector<pair<int, int> > >& adjList, int& start)
+vector<int> BellmanFordSP(vector< list<pair<int, int> > >& adjList, int& start)
 {
     cout << "\nGetting the shortest path from " << start << " to all other nodes.\n";
     vector<int> dist;
@@ -29,10 +29,10 @@ vector<int> BellmanFordSP(vector< vector<pair<int, int> > >& adjList, int& start
         for (int u = 0; u < n; u++)
         {
             // For each of it's neighbors (v)...
-            for (int j = 0; j < adjList[u].size(); j++)
+            for (auto j = adjList[u].begin() ; j != adjList[u].end(); j++)
             {
-                int v = adjList[u][j].first;
-                int weight = adjList[u][j].second;
+                int v = j->first;
+                int weight = j->second;
 
                 // If the distance from source to v is bigger than dist[u] + weight of (u,v)...
                 if (dist[v] > dist[u] + weight)
@@ -74,8 +74,9 @@ int main()
 
 
     // total number of nodes in the graph (labelled from 0 to 5)
-    int n = 4;
-    int numOfEdges = 6;
+    int n; cin >> n;
+    int numOfEdges; cin >> numOfEdges;
+
 
     for (int i = 0; i < numOfEdges; i++)
     {
@@ -93,12 +94,18 @@ int main()
 
     // print adjacency list representation of a graph
     graph.printGraph();
+
+    cout << "\nshortest path form node 0 to node " << graph.nodes_count()-1 << " is:  "
+        << graph.BellmanFordSP(0, graph.nodes_count()-1) << '\n';
     graph.erase(1);
     cout << "\nerase node 1\n";
     graph.printGraph();
-    int node = 0;
+    cout << "\nshortest path form node 0 to node " << graph.nodes_count()-1 << " is:  "
+        << graph.BellmanFordSP(0, graph.nodes_count()-1) << '\n';
 
-   // vector<int> dist = BellmanFordSP(graph.adjList, node);
+   
 
-   // PrintShortestPath(dist, node);
+    //vector<int> dist = BellmanFordSP(graph.adjList, node);
+
+    //PrintShortestPath(dist, node);
 }
