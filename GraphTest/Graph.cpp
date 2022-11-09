@@ -16,6 +16,35 @@ Graph::Graph(vector<Edge> const& edges, int n)  : nodes_number(n) ,edges_number(
     }
 }
 
+void Graph::addNode(int n) {
+    adjList.resize(adjList.size() + n);
+}
+
+bool Graph::connectNode(int src, int dest, int weight) {
+    // case 1: src && dest exist
+    if (src < adjList.size() && dest < adjList.size() && src != dest) {
+        adjList[src].push_back(make_pair(dest, weight));
+        return true;
+    }
+
+    // case 2: src || dest exists
+    else if (src == adjList.size() || dest == adjList.size()) {
+        this->addNode(1);
+        adjList[src].push_back(make_pair(dest, weight));
+        return true;
+    }
+
+    // case 3: src && dest don't exist
+    else if ((src == adjList.size() && dest == adjList.size() + 1) ||
+        src == adjList.size() + 1 && dest == adjList.size()) {
+        this->addNode(2);
+        adjList[src].push_back(make_pair(dest, weight));
+    }
+
+    // case 4: else return false
+    else return false;
+}
+
 int Graph::nodes_count()
 {
     return nodes_number;

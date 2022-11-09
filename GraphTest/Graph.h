@@ -21,6 +21,8 @@ public:
     int nodes_count();
     void printGraph();
 
+    bool connectNode(int src, int dest, int weight);
+    void addNode(int n);
 
     bool erase(int node);
 
