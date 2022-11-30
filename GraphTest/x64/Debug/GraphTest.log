@@ -1,8 +1,6 @@
 ﻿  Graph.cpp
-C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(44,43): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(73,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(132,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  GraphTest.cpp
-C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\GraphTest.cpp(16,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  GraphTest.vcxproj -> C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\x64\Debug\GraphTest.exe
+C:\Users\pc\source\repos\Find_Your_Waye\GraphTest\Graph.cpp(73,43): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\pc\source\repos\Find_Your_Waye\GraphTest\Graph.cpp(102,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\pc\source\repos\Find_Your_Waye\GraphTest\Graph.cpp(161,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\pc\source\repos\Find_Your_Waye\GraphTest\Graph.cpp(46): warning C4715: 'Graph::connectNode': not all control paths return a value
+  GraphTest.vcxproj -> C:\Users\pc\source\repos\Find_Your_Waye\x64\Debug\GraphTest.exe

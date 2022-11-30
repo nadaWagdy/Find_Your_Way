@@ -96,7 +96,7 @@ int main()
 
     // print adjacency list representation of a graph
     graph.printGraph();
-
+    
     cout << "\nshortest path form node 0 to node " << graph.nodes_count()-1 << " is:  "
         << graph.BellmanFordSP(0, graph.nodes_count()-1) << '\n';
     graph.erase(1);
@@ -104,8 +104,6 @@ int main()
     graph.printGraph();
     cout << "\nshortest path form node 0 to node " << graph.nodes_count()-1 << " is:  "
         << graph.BellmanFordSP(0, graph.nodes_count()-1) << '\n';
-
-   
 
     //vector<int> dist = BellmanFordSP(graph.adjList, node);
 
