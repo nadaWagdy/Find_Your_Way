@@ -18,12 +18,14 @@ Graph::Graph(vector<Edge> const& edges, int n)  : nodes_number(n) ,edges_number(
 
 void Graph::addNode(int n) {
     adjList.resize(adjList.size() + n);
+    nodes_number++;
 }
 
 bool Graph::connectNode(int src, int dest, int weight) {
     // case 1: src && dest exist
     if (src < adjList.size() && dest < adjList.size() && src != dest) {
         adjList[src].push_back(make_pair(dest, weight));
+        edges_number++;
         return true;
     }
 
@@ -31,6 +33,7 @@ bool Graph::connectNode(int src, int dest, int weight) {
     else if (src == adjList.size() || dest == adjList.size()) {
         this->addNode(1);
         adjList[src].push_back(make_pair(dest, weight));
+        edges_number++;
         return true;
     }
 
@@ -39,6 +42,8 @@ bool Graph::connectNode(int src, int dest, int weight) {
         src == adjList.size() + 1 && dest == adjList.size()) {
         this->addNode(2);
         adjList[src].push_back(make_pair(dest, weight));
+        edges_number++;
+        return true;
     }
 
     // case 4: else return false
