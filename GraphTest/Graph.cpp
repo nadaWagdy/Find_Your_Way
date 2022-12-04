@@ -178,3 +178,24 @@ void Graph::generateRandomWeights()
         }
     }
 }
+
+void Graph::searchWeight(int n)
+{
+    bool flag = false;
+    for (int i = 0; i < adjList.size(); i++)
+    {
+        for (auto j = adjList[i].begin(); j != adjList[i].end(); j++)
+        {
+            if (j->second == n)
+            {
+                cout << "This weight was found between node " << i << " And " << j->first;
+                flag = true;
+            }
+
+        }
+    }
+    if (flag == false)
+    {
+        cout << "This weight was not found in the graph";
+    }
+}
