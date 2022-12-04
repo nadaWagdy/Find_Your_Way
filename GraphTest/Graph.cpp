@@ -69,36 +69,34 @@ void Graph::printGraph()
     }
     cout << "nodes count is : " << nodes_number << " edges count is : " << edges_number;
 }
+
 bool Graph::erase(int node)
 {
-    bool found = false;
-    if (node >= adjList.size())return false;
-    if (adjList[node].size() != 0) {
-        found = true;     
-        edges_number -= adjList[node].size();
-        //adjList[node].clear(); //alternative impl not completed yet
-        adjList.erase(adjList.begin() + node);
-    }
+    if (node >= adjList.size() || node < 0)return false;
+    edges_number -= adjList[node].size();
+    adjList.erase(adjList.begin() + node); //remove the node from the vector
     for (auto& srcs : adjList) {
-      //  srcs.remove_if([](Pair x) {return x.first == 1; });
         list<Pair>::iterator edge = srcs.begin();
         while ( edge != srcs.end()) {
             if (edge->first == node) {
-                found = true;
                 auto temp = edge;
                 edge++;
-                srcs.erase(temp);
+                srcs.erase(temp); //remove any edge that its source is the node
                 edges_number--;
             }
             else if (edge->first > node) {
-                edge->first--;
+                edge->first--; // decrement any node value more than the node number
+                edge++;
+            }
+            else {
                 edge++;
             }
         }
     }
-    if (found)nodes_number--;
-    return found;
+    nodes_number--;
+    return true;
 }
+
 int Graph::BellmanFordSP(int start,int end)
 {
     vector<int> dist;
@@ -144,22 +142,22 @@ int Graph::BellmanFordSP(int start,int end)
     return dist[end];
 
 }
-/*
+
 bool Graph::erase(int src, int dest)
 {
-    bool found = false;
-    if (src >= adjList.size())return false;
-    for (vector<Pair>::iterator edges = adjList[src].begin(); edges != adjList[src].end();edges++) {
-        if (edges->first == dest) {
-            found = true;
-            adjList[src].erase(edges);
+    if (src >= adjList.size() || src < 0 || dest >= adjList.size() || dest < 0)return false;
+    list<Pair>::iterator destination = adjList[src].begin();
+    while (destination!=adjList[src].end())
+    {
+        if (destination->first == dest) {
             edges_number--;
-            break;
+            adjList[src].erase(destination);
+            return true;
         }
+        destination++;
     }
-    return found;
+    return false;
 }
-*/
 
 void Graph::generateRandomWeights()
 {
@@ -188,7 +186,7 @@ void Graph::searchWeight(int n)
         {
             if (j->second == n)
             {
-                cout << "This weight was found between node " << i << " And " << j->first;
+                cout << "This weight was found between node " << i << " And " << j->first << '\n';
                 flag = true;
             }
 
@@ -199,3 +197,9 @@ void Graph::searchWeight(int n)
         cout << "This weight was not found in the graph";
     }
 }
+
+bool Graph::empty()
+{
+    return nodes_count==0;
+}
+

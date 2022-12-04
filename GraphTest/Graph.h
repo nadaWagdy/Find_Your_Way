@@ -14,7 +14,7 @@ typedef pair<int, int> Pair;
 class Graph
 {
 public:
-    vector<list<Pair>> adjList;
+   
     /*--------------------------------------------------------------------
        Default constructor: Builds a Graph with the given number of edges ( n )
        Precondition:  None
@@ -38,7 +38,7 @@ public:
        Precondition: src and dest are available
        Postcondition: 2 Nodes are connected together by a certain weight
      --------------------------------------------------------------------*/
-    bool connectNode(int src, int dest, int weight);
+    bool connectNode(int src, int dest, int weight=0);
     /*--------------------------------------------------------------------
        Adds a node to the graph
        Precondition:  None
@@ -47,13 +47,13 @@ public:
     void addNode(int n);
     /*--------------------------------------------------------------------
        Erases a node
-       Precondition:  None
+       Precondition:  node exsists
        Postcondition: A node is deleted.
      --------------------------------------------------------------------*/
     bool erase(int node);
     /*--------------------------------------------------------------------
        Erase the connection between 2 nodes
-       Precondition:  None
+       Precondition:  no more than one connection from same source to same dest
        Postcondition: Connection between the 2 nodes is deleted
      --------------------------------------------------------------------*/
     bool erase(int src, int dest);
@@ -75,8 +75,15 @@ public:
        Postcondition: If the weight is found in graph, Prints out the weight's source and destination
      --------------------------------------------------------------------*/
     void searchWeight(int n);
+    /*--------------------------------------------------------------------
+        checks if the graph is empty
+        precondition: None
+        Postcondition : return true if empty false otherwise
+    */
+    bool empty();
 private:
     // a vector of vectors of Pairs to represent an adjacency list
+    vector<list<Pair>> adjList;
     int nodes_number;
     int edges_number;
 };

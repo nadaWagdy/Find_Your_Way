@@ -1,9 +1,2 @@
-﻿  Graph.cpp
-C:\Users\pc\source\repos\Find_Your_Ways\GraphTest\Graph.cpp(78,43): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\pc\source\repos\Find_Your_Ways\GraphTest\Graph.cpp(107,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\pc\source\repos\Find_Your_Ways\GraphTest\Graph.cpp(166,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  GraphTest.cpp
-C:\Users\pc\source\repos\Find_Your_Ways\GraphTest\GraphTest.cpp(16,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  LINK : C:\Users\pc\source\repos\Find_Your_Ways\x64\Debug\GraphTest.exe not found or not built by the last incremental link; performing full link
-  GraphTest.vcxproj -> C:\Users\pc\source\repos\Find_Your_Ways\x64\Debug\GraphTest.exe
+﻿  GraphTest.cpp
+  GraphTest.vcxproj -> C:\Users\ahmed\Source\Repos\nadaWagdy\Find_Your_Way\x64\Debug\GraphTest.exe
