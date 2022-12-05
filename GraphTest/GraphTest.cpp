@@ -53,13 +53,12 @@ int main()
     cout << "\ngraph after being filled with random numbers\n";
     graph.generateRandomWeights();
     graph.printGraph();
-    while (x--) {
+    
         cout << "\nwhich node you want to delete\n";
         int node; cin >> node;
         cout << graph.erase(node) << '\n';
-       
-
-    }
+      
+        graph.printGraph();
     
 
 

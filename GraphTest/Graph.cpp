@@ -3,14 +3,14 @@
 Graph::Graph(vector<Edge> const& edges, int n)  : nodes_number(n) ,edges_number(0)
 {
     adjList.resize(n);
-    // add edges to the directed graph
+
     for (auto& edge : edges)
     {
         int src = edge.src;
         int dest = edge.dest;
         int weight = edge.weight;
 
-        // insert at the end
+
         adjList[src].push_back(make_pair(dest, weight));
         edges_number++;
     }
@@ -57,15 +57,11 @@ int Graph::nodes_count()
 
 void Graph::printGraph()
 {
-
-
     for (int i = 0; i < nodes_number; i++)
     {
-        // Function to print all neighboring vertices of a given vertex
         for (Pair v : adjList[i]) {
             cout << "(" << i << ", " << v.first << ", " << v.second << ") " << endl;
         }
-        //cout << endl;
     }
     cout << "nodes count is : " << nodes_number << " edges count is : " << edges_number;
 }
