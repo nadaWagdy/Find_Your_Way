@@ -11,15 +11,15 @@ int main()
     // total number of nodes in the graph (labelled from 0 to 5)
     cout << "enter the number of nodes\n";
     int n; cin >> n;
-    edges.push_back({ 0, 1, });
-    edges.push_back({ 0, 2, });
-    edges.push_back({ 0, 3, });
-    edges.push_back({ 1, 3, });
-    edges.push_back({ 2, 3, });
-    edges.push_back({ 3, 4, });
-    edges.push_back({ 3, 5, });
-    edges.push_back({ 4, 5, });
-    edges.push_back({ 5, 4, });
+    edges.push_back({ 0, 1, 5 });
+    edges.push_back({ 0, 2, 7});
+    edges.push_back({ 0, 3, 2});
+    edges.push_back({ 1, 3, -2});
+    edges.push_back({ 2, 3, -1});
+    edges.push_back({ 3, 4, 3});
+    edges.push_back({ 3, 5, 8});
+    edges.push_back({ 4, 5, 1});
+    edges.push_back({ 5, 4, -1});
 
 
     // construct graph
@@ -27,6 +27,9 @@ int main()
     graph.generateRandomWeights();
     // print adjacency list representation of a graph
     graph.printGraph();
+
+    cout << "\nshortest path form node 0 to node " << graph.nodes_count() - 1 << " is:  "
+        << graph.BellmanFordSP(0, graph.nodes_count() - 1) << '\n';
 
    
     // testing the erase and connect node methods

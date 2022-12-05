@@ -1,2 +1,12 @@
-﻿  GraphTest.cpp
+﻿  Graph.cpp
+C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(73,39): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(100,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(104,24): warning C4244: 'argument': conversion from 'float' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\GraphTest\Graph.cpp(149,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  GraphTest.cpp
+  Generating Code...
   GraphTest.vcxproj -> C:\Users\Legion\Documents\GitHubDoc\Find_Your_Way\x64\Debug\GraphTest.exe

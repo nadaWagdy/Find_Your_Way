@@ -168,7 +168,7 @@ void Graph::searchWeight(int n)
         {
             if (j->second == n)
             {
-                cout << "This weight was found between node " << i << " And " << j->first << '\n';
+                cout << "\nThis weight was found between node " << i << " And " << j->first << '\n';
                 flag = true;
             }
 
@@ -176,7 +176,7 @@ void Graph::searchWeight(int n)
     }
     if (flag == false)
     {
-        cout << "This weight was not found in the graph";
+        cout << "\nThis weight was not found in the graph\n";
     }
 }
 
