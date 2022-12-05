@@ -30,7 +30,8 @@ bool Graph::connectNode(int src, int dest, int weight) {
     }
 
     // case 2: src || dest exists
-    else if (src == adjList.size() || dest == adjList.size()) {
+    else if ((src == adjList.size() && dest < adjList.size())
+        ||  (dest == adjList.size() && src < adjList.size())) {
         this->addNode(1);
         adjList[src].push_back(make_pair(dest, weight));
         edges_number++;
@@ -38,8 +39,8 @@ bool Graph::connectNode(int src, int dest, int weight) {
     }
 
     // case 3: src && dest don't exist
-    else if ((src == adjList.size() && dest == adjList.size() + 1) ||
-        src == adjList.size() + 1 && dest == adjList.size()) {
+    else if ((src == adjList.size() && dest == adjList.size() + 1)
+        ||    src == adjList.size() + 1 && dest == adjList.size()) {
         this->addNode(2);
         adjList[src].push_back(make_pair(dest, weight));
         edges_number++;
